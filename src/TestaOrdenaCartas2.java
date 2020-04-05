@@ -5,11 +5,11 @@ public class TestaOrdenaCartas2 {
 	public static void main(String[] args) {
 		
 		Cartas maoCartas[] = {
-				new Cartas("Copas", 4),
-				new Cartas("Copas", 7),
-				new Cartas("Copas", 10),
-				new Cartas("Espadas", 0),
-				new Cartas("Ouros", 8)	
+				new Cartas("Ouros", 8),
+				new Cartas("Copas", 2),
+				new Cartas("Copas", 9),
+				new Cartas("Copas", 6),
+				new Cartas("Espadas", 5)	
 		};
 		
 		ordenaCartas(maoCartas);
@@ -22,7 +22,7 @@ public class TestaOrdenaCartas2 {
 	
 	public static void ordenaCartas(Cartas[] cartas) {
 		
-		for(int atual = 1 ; atual < 5; atual++) {
+		for(int atual = 1 ; atual < cartas.length; atual++) {
 			int analise = atual;
 			while(analise > 0 &&  cartas[analise].getValor() < cartas[analise - 1].getValor()) {
 				movimentaCartas(cartas, analise, analise -1);

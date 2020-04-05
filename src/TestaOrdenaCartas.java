@@ -9,8 +9,7 @@ public class TestaOrdenaCartas {
 			new Cartas("Copas", 4),
 			new Cartas("Copas", 7),
 			new Cartas("Copas", 10),
-			new Cartas("Espadas", 0),
-			new Cartas("Ouros", 8)	
+			new Cartas("Espadas", 1),	
 		};
 		
 	ordenaCartas(maoCartas, maoCartas.length);
