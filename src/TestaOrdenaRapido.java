@@ -21,10 +21,24 @@ public class TestaOrdenaRapido {
 		
 		
 		ordenar(cartas, 0, cartas.length);
+		int posicaoCarta = buscar(cartas, 0, cartas.length, 5);
+		System.out.println("Achada a carta " + cartas[posicaoCarta].getValor() + " de " + 
+				cartas[posicaoCarta].getCarta() + " na posiçâo " + posicaoCarta);
 		
 		for(Cartas carta : cartas) {
+
 			System.out.println(carta.getValor() + " de " + carta.getCarta());
 		}
+	}
+
+	private static int buscar(Cartas[] cartas, int de, int ate, int buscando) {
+		
+		for( int atual = de; atual < ate; atual++) {
+			if( cartas[atual].getValor() == buscando) {
+				return atual;
+			}
+		}
+		return -1;
 	}
 
 	private static void ordenar(Cartas[] cartas, int de, int ate) {
