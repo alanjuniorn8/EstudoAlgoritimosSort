@@ -22,8 +22,15 @@ public class TestaOrdenaRapido {
 		
 		ordenar(cartas, 0, cartas.length);
 		int posicaoCarta = buscar(cartas, 0, cartas.length, 5);
-		System.out.println("Achada a carta " + cartas[posicaoCarta].getValor() + " de " + 
-				cartas[posicaoCarta].getCarta() + " na posiçâo " + posicaoCarta);
+		
+		if (posicaoCarta == -1) {
+			System.out.println("Carta não encontrada");
+		}
+		else {
+			System.out.println("Achada a carta " + cartas[posicaoCarta].getValor() + " de " + 
+					cartas[posicaoCarta].getCarta() + " na posiçâo " + posicaoCarta);
+		}
+	
 		
 		for(Cartas carta : cartas) {
 
@@ -32,13 +39,19 @@ public class TestaOrdenaRapido {
 	}
 
 	private static int buscar(Cartas[] cartas, int de, int ate, int buscando) {
-		
-		for( int atual = de; atual < ate; atual++) {
-			if( cartas[atual].getValor() == buscando) {
-				return atual;
-			}
+		if(de>ate) {
+			return -1;
 		}
-		return -1;
+		int meio= (de + ate)/2;
+		Cartas carta = cartas[meio];
+		if (carta.getValor() == buscando ) {
+			return meio;
+			
+		}
+		if(carta.getValor() > buscando) {
+			return buscar(cartas, de, meio - 1, buscando);
+		}
+		return buscar(cartas, meio + 1, ate, buscando);
 	}
 
 	private static void ordenar(Cartas[] cartas, int de, int ate) {
